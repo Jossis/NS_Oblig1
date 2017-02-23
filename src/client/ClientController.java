@@ -42,6 +42,9 @@ public class ClientController implements Initializable
     
     @FXML
     public Button knapp;
+    public Button logginn;
+    public String user;
+    public String pass;
     
     @FXML
     private ImageView imageView;
@@ -63,7 +66,13 @@ public class ClientController implements Initializable
         imageView.setImage(imageTom);
         farge = "off";
         
-        
+        logginn.setOnAction((javafx.event.ActionEvent e) ->{
+            if(e.getSource()==logginn){
+                multiclient.server.MultiClientServerController.sjekk(user,pass);
+            }
+        }
+                
+        })
         knapp.setOnAction((javafx.event.ActionEvent e) -> {
             if(e.getSource() == knapp) {
                 if("On".equals(knapp.getText())) {

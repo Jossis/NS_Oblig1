@@ -21,13 +21,24 @@ public class MultiClientServerController implements Initializable
     private TextArea txtLog;
 
     private ServerTask serverTask;
-
+    
+    private User[] users;
+    
     public MultiClientServerController()
     {
         serverTask = new ServerTask(5555);
         serverTask.start();
     }
 
+    
+    public void sjekk(String u, String p){
+        for (int i=0; i<users.length;i++)
+        {
+            if(users[i].getUsername==u && users[i].getPassword==p){
+                client.ClientMain.inlogga(u);
+            }
+        }
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
