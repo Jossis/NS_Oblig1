@@ -45,7 +45,7 @@ public class ClientController implements Initializable
     public Button logginn;
     public String user;
     public String pass;
-    
+    private multiclient.server.MultiClientServerController m;
     @FXML
     private ImageView imageView;
 
@@ -68,25 +68,11 @@ public class ClientController implements Initializable
         
         logginn.setOnAction((javafx.event.ActionEvent e) ->{
             if(e.getSource()==logginn){
-                multiclient.server.MultiClientServerController.sjekk(user,pass);
+                m.sjekk(user,pass);
             }
-        }
+        });
                 
-        })
-        knapp.setOnAction((javafx.event.ActionEvent e) -> {
-            if(e.getSource() == knapp) {
-                if("On".equals(knapp.getText())) {
-                    knapp.setText("Off");
-                    farge = "";
-                    byttBilde(fargeFraServer);
-                } else {
-                    knapp.setText("On");
-                    farge = "off";
-                    imageView.setImage(imageTom);
-                    //imageView.setImage(imageTom);
-                }
-            }//end of if //To change body of generated methods, choose Tools | Templates.
-        });//end of setOnAction
+      
     }
     
     public void byttBilde(String fargeTing) {
