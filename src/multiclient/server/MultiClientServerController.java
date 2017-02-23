@@ -29,13 +29,13 @@ public class MultiClientServerController implements Initializable
         serverTask = new ServerTask(5555);
         serverTask.start();
     }
-
+    private client.ClientMain c;
     
     public void sjekk(String u, String p){
         for (int i=0; i<users.length;i++)
         {
             if(users[i].getUsername==u && users[i].getPassword==p){
-                client.ClientMain.inlogga(u);
+                c.inlogga(u);
             }
         }
     }
